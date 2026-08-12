@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rifa solidaria | Dije con esmeralda | Familias Gutiérrez y Millán</title>
+  <meta name="description" content="Rifa solidaria por las familias Gutiérrez y Millán. Boletas de $35.000, números del 0 al 139. Participa por un dije con esmeralda colombiana 100% natural y certificada. Juega al finalizar la venta de las boletas con la Lotería de Boyacá.">
+
+  <link rel="icon" href="/favicon-corazon.png" type="image/png">
+  <meta property="og:title" content="Rifa solidaria | Dije con esmeralda colombiana">
+  <meta property="og:description" content="Apoya a las familias Gutiérrez y Millán con una boleta de $35.000 y participa por un dije con esmeralda colombiana 100% natural y certificada.">
+  <meta property="og:image" content="https://rifasolidariafox.vercel.app/favicon-corazon.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://rifasolidariafox.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rifa Solidaria Fox">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rifa solidaria | Dije con esmeralda colombiana">
+  <meta name="twitter:description" content="Apoya a dos familias afectadas por el terremoto y participa por un dije con esmeralda colombiana 100% natural y certificada.">
+  <meta name="twitter:image" content="https://rifasolidariafox.vercel.app/favicon-corazon.png">
+  <link rel="canonical" href="https://rifasolidariafox.vercel.app/">
+
+  <style>
+    :root {
+      --bg: #f6efe7;
+      --bg-soft: #fcf8f3;
+      --card: rgba(255, 251, 247, 0.96);
+      --border: #e3c8b6;
+      --line: #d8b6a5;
+      --text: #5d4d43;
+      --text-soft: #6f6257;
+      --rose: #cf8f76;
+      --rose-deep: #c47d62;
+      --sage: #9aa087;
+      --sage-deep: #7f866f;
+      --cream-pill: #f8efe7;
+      --sold: #ead7c8;
+      --shadow: rgba(162, 127, 104, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--bg);
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right, rgba(207, 143, 118, 0.16), transparent 28%),
+        radial-gradient(circle at left center, rgba(154, 160, 135, 0.12), transparent 30%),
+        linear-gradient(180deg, #fcf8f4 0%, #f6efe7 100%);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .rifa-wrap {
+      width: 100%;
+      padding: 14px 24px 22px;
+    }
+
+    .rifa-card {
+      position: relative;
+      overflow: hidden;
+      width: min(890px, 100%);
+      margin: 0 auto;
+      padding: 24px 20px 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 12px 34px var(--shadow);
+      text-align: center;
+      isolation: isolate;
+    }
+
+    .rifa-card::before,
+    .rifa-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .rifa-card::before {
+      width: 360px;
+      height: 360px;
+      right: -160px;
+      top: -120px;
+      background: radial-gradient(circle, rgba(207, 143, 118, 0.14), transparent 66%);
+    }
+
+    .rifa-card::after {
+      width: 260px;
+      height: 260px;
+      left: -100px;
+      bottom: -120px;
+      background: radial-gradient(circle, rgba(154, 160, 135, 0.12), transparent 68%);
+    }
+
+    .rifa-icono {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(207, 143, 118, 0.32);
+    }
+
+    .rifa-icono img {
+      display: block;
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      opacity: .95;
+    }
+
+    .rifa-card h1.rifa-titulo {
+      max-width: 720px;
+      margin: 0 auto;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 400;
+      line-height: 0.96;
+      letter-spacing: -0.8px;
+    }
+
+    .rifa-titulo .titulo-rosa,
+    .rifa-titulo .titulo-verde {
+      display: block;
+      font-size: clamp(44px, 7vw, 68px);
+    }
+
+    .rifa-titulo .titulo-rosa {
+      color: var(--rose);
+    }
+
+    .rifa-titulo .titulo-verde {
+      color: var(--sage);
+    }
+
+    .rifa-titulo .titulo-pequeno {
+      display: inline-block;
+      margin: 6px 0 10px;
+      padding: 0 16px;
+      position: relative;
+      color: var(--text);
+      font-size: clamp(18px, 2.4vw, 22px);
+      letter-spacing: -0.2px;
+    }
+
+    .rifa-titulo .titulo-pequeno::before,
+    .rifa-titulo .titulo-pequeno::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 46px;
+      height: 1px;
+      background: var(--line);
+      transform: translateY(-50%);
+    }
+
+    .rifa-titulo .titulo-pequeno::before { left: -36px; }
+    .rifa-titulo .titulo-pequeno::after { right: -36px; }
+
+    .rifa-titulo .titulo-familias {
+      display: block;
+      font-size: clamp(30px, 4.4vw, 48px);
+      line-height: 1.02;
+    }
+
+    .rifa-subtitle {
+      max-width: 640px;
+      margin: 18px auto 16px;
+      color: var(--text-soft);
+      font-size: 16px;
+      line-height: 1.56;
+      text-align: center;
+    }
+
+    .rifa-subtitle strong,
+    .rifa-premio strong,
+    .rifa-contacto strong,
+    .rifa-causa strong {
+      color: var(--sage-deep);
+      font-weight: 700;
+    }
+
+    .rifa-sorteo {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 3px;
+      max-width: 470px;
+      margin: 0 auto 18px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--cream-pill);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.42;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
+    }
+
+    .rifa-sorteo strong {
+      color: var(--rose-deep);
+      font-weight: 700;
+    }
+
+    .rifa-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 680px;
+      margin: 0 auto 18px;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.7);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .rifa-info span {
+      color: var(--rose-deep);
+      font-weight: 700;
+    }
+
+    .rifa-detalle {
+      color: var(--text);
+      text-align: center;
+    }
+
+    .rifa-detalle h2 {
+      margin: 0 auto 8px;
+      color: var(--rose-deep);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .rifa-premio {
+      max-width: 660px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--text-soft);
+    }
+
+    .rifa-precio {
+      display: inline-block;
+      margin: 18px auto 16px;
+      padding: 9px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #f7eee6;
+      color: var(--rose-deep);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .rifa-causa {
+      max-width: 590px;
+      margin: 0 auto;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 248, 241, 0.88);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.55;
+      box-shadow: 0 10px 24px rgba(162, 127, 104, 0.06);
+    }
+
+    .rifa-cierre {
+      position: relative;
+      display: inline-block;
+      margin: 16px auto 12px;
+      color: var(--text);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    .rifa-cierre::after {
+      content: "";
+      display: block;
+      width: 74px;
+      height: 3px;
+      margin: 8px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--rose), rgba(207, 143, 118, 0.2));
+    }
+
+    .rifa-contacto {
+      margin: 8px auto 18px;
+      color: var(--text-soft);
+      font-size: 12.5px;
+      line-height: 1.62;
+      text-align: center;
+    }
+
+    .rifa-contacto .whatsapp-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #f7eee6;
+      color: var(--rose-deep);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .rifa-contacto .whatsapp-btn:hover {
+      transform: translateY(-1px);
+      background: #f4e7de;
+      box-shadow: 0 8px 18px rgba(162, 127, 104, 0.12);
+    }
+
+    .rifa-grid {
+      display: grid;
+      grid-template-columns: repeat(14, minmax(0, 1fr));
+      gap: 6px;
+      width: 100%;
+      margin-top: 6px;
+    }
+
+    .rifa-numero {
+      min-width: 0;
+      min-height: 52px;
+      padding: 5px 3px 4px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(255, 252, 247, 0.98);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .rifa-numero:hover {
+      transform: translateY(-2px);
+      background: #fff7f1;
+      border-color: var(--rose);
+      box-shadow: 0 8px 16px rgba(162, 127, 104, 0.12);
+    }
+
+    .rifa-numero .num {
+      color: var(--rose-deep);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .rifa-numero .nombre {
+      width: 100%;
+      color: var(--sage-deep);
+      font-size: 8px;
+      line-height: 1.08;
+      text-align: center;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .rifa-numero.vendido {
+      background: var(--sold);
+      border-color: #c9a995;
+    }
+
+    .rifa-numero.vendido .num,
+    .rifa-numero.vendido .nombre {
+      color: #7e6659;
+      font-weight: 700;
+    }
+
+    .rifa-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(68, 53, 43, 0.84);
+    }
+
+    .rifa-modal img {
+      max-width: 95%;
+      max-height: 90vh;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .rifa-modal > span {
+      position: absolute;
+      top: 18px;
+      right: 28px;
+      color: #fff;
+      font-size: 42px;
+      cursor: pointer;
+    }
+
+    .popup-rifa {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(86, 67, 56, 0.55);
+    }
+
+    .popup-contenido {
+      width: 100%;
+      max-width: 340px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #fffaf6;
+      box-shadow: 0 15px 40px rgba(90, 61, 15, 0.18);
+      text-align: center;
+    }
+
+    .popup-contenido p {
+      margin-bottom: 20px;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .popup-botones {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .popup-botones button {
+      border: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .popup-botones button:first-child {
+      background: var(--rose-deep);
+      color: white;
+    }
+
+    .popup-botones button:last-child {
+      background: #f2e8de;
+      color: var(--text);
+    }
+
+    @media (max-width: 760px) {
+      .rifa-wrap {
+        padding: 10px 10px 14px;
+      }
+
+      .rifa-card {
+        padding: 22px 12px 16px;
+      }
+
+      .rifa-titulo .titulo-rosa,
+      .rifa-titulo .titulo-verde {
+        font-size: clamp(38px, 11vw, 58px);
+      }
+
+      .rifa-titulo .titulo-familias {
+        font-size: clamp(27px, 7vw, 40px);
+      }
+
+      .rifa-sorteo {
+        border-radius: 24px;
+        max-width: 95%;
+      }
+
+      .rifa-grid {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .rifa-wrap {
+        padding: 6px;
+      }
+
+      .rifa-card {
+        padding: 18px 9px 13px;
+        border-radius: 18px;
+      }
+
+      .rifa-icono {
+        width: 46px;
+        height: 46px;
+      }
+
+      .rifa-titulo .titulo-pequeno {
+        font-size: 17px;
+        padding: 0 12px;
+      }
+
+      .rifa-titulo .titulo-pequeno::before,
+      .rifa-titulo .titulo-pequeno::after {
+        width: 24px;
+      }
+
+      .rifa-titulo .titulo-pequeno::before { left: -18px; }
+      .rifa-titulo .titulo-pequeno::after { right: -18px; }
+
+      .rifa-subtitle,
+      .rifa-premio,
+      .rifa-causa {
+        font-size: 14px;
+      }
+
+      .rifa-causa strong {
+        font-size: 14px;
+      }
+
+      .rifa-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 5px;
+      }
+
+      .rifa-numero {
+        min-height: 52px;
+      }
+
+      .rifa-numero .num {
+        font-size: 15px;
+      }
+
+      .rifa-numero .nombre {
+        font-size: 7.5px;
+      }
+    }
+  </style></head>
+<body>
+  <div class="rifa-wrap">
+    <div class="rifa-card">
+      <div class="rifa-icono" aria-hidden="true">
+        <img src="/favicon-corazon.png" alt="">
+      </div>
+
+      <h1 class="rifa-titulo">
+        <span class="titulo-rosa">Rifa</span>
+        <span class="titulo-verde">solidaria</span>
+        <span class="titulo-pequeno">por las familias</span>
+        <span class="titulo-rosa titulo-familias">Gutiérrez y Millán</span>
+      </h1>
+
+      <p class="rifa-subtitle">
+        Con solo <strong>$35.000</strong> puedes apoyar a estas dos familias que perdieron su hogar a causa del terremoto y, además,
+        participar por un hermoso <strong>dije con esmeralda colombiana 100% natural y certificada</strong>. 💎
+      </p>
+
+      <div class="rifa-sorteo">
+        <div>🎟️ <strong>Números del 0 al 139</strong></div>
+        <div>Juega al finalizar la venta de las boletas con la <strong>Lotería de Boyacá</strong>.</div>
+      </div>
+
+      <div class="rifa-info">
+        <div>
+          Número Ganador:
+          <span id="numeroGanadorTexto">_____</span>
+        </div>
+        <div>
+          Ganador:
+          <strong><span id="ganadorTexto">_________</span></strong><br>
+          Muchas felicidades al ganador 🎉.<br><br>
+          Gracias a todos por participar y apoyar esta causa.
+        </div>
+      </div>
+
+      <div class="rifa-detalle">
+        <h2>Premio</h2>
+        <p class="rifa-premio">
+          Un hermoso <strong>dije con esmeralda colombiana 100% natural y certificada</strong>. 💎
+        </p>
+
+        <div class="rifa-precio">Valor de la boleta: $35.000</div>
+
+        <div class="rifa-causa">
+          🙏 <strong>El 100% de lo recaudado será destinado a ayudar a las familias Gutiérrez y Millán.</strong>
+        </div>
+
+        <p class="rifa-cierre">¡Cada boleta cuenta y cada aporte hace la diferencia! 🤍</p>
+
+        <div class="rifa-contacto">
+          Para apartar una boleta, selecciona un número disponible.<br>
+          El mensaje será dirigido a <strong>Mónica Pineda</strong> por WhatsApp.<br>
+          <a class="whatsapp-btn" href="https://wa.me/message/7LI6ZQ6CGNZZL1" target="_blank" rel="noopener">Contactar a Mónica por WhatsApp</a>
+        </div>
+      </div>
+
+      <div id="tarjetonRifa" class="rifa-grid"></div>
+    </div>
+  </div>
+
+  <div id="modalRifa" class="rifa-modal" onclick="cerrarImagenRifa()">
+    <span>&times;</span>
+    <img src="./576904942_811337571753683_5475301325738228646_n.jpg" alt="prenda de oro de 18 kilates">
+  </div>
+
+  <div id="popupRifa" class="popup-rifa">
+    <div class="popup-contenido">
+      <p id="popupMensaje"></p>
+
+      <div class="popup-botones" id="popupAcciones">
+        <button onclick="confirmarAccionRifa()">Sí</button>
+        <button onclick="cerrarPopupRifa()">No</button>
+      </div>
+
+      <div class="popup-botones" id="popupCerrar" style="display:none;">
+        <button onclick="cerrarPopupRifa()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const numeroGanador = null; // Cambia esto al número ganador cuando se defina, por ejemplo: "23";
+  if (!numeroGanador) {
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".rifa-info").style.display = "none";
+  });
+}
+
+const numerosRifa = [
+  { id: "0", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "1", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "2", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "3", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "4", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "5", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "6", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "7", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "8", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "9", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "10", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "11", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "12", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "13", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "14", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "15", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "16", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "17", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "18", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "19", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "20", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "21", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "22", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "23", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "24", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "25", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "26", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "27", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "28", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "29", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "30", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "31", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "32", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "33", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "34", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "35", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "36", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "37", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "38", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "39", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "40", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "41", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "42", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "43", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "44", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "45", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "46", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "47", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "48", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "49", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "50", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "51", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "52", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "53", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "54", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "55", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "56", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "57", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "58", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "59", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "60", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "61", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "62", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "63", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "64", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "65", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "66", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "67", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "68", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "69", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "70", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "71", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "72", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "73", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "74", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "75", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "76", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "77", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "78", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "79", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "80", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "81", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "82", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "83", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "84", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "85", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "86", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "87", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "88", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "89", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "90", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "91", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "92", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "93", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "94", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "95", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "96", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "97", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "98", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "99", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "100", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "101", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "102", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "103", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "104", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "105", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "106", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "107", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "108", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "109", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "110", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "111", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "112", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "113", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "114", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "115", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "116", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "117", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "118", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "119", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "120", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "121", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "122", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "123", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "124", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "125", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "126", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "127", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "128", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "129", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "130", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "131", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "132", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "133", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "134", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "135", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "136", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "137", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "138", nombre: null, direccion: null, whatsapp: null, estado: null },
+  { id: "139", nombre: null, direccion: null, whatsapp: null, estado: null }
+];
+
+function mostrarPopupRifa(mensaje, mostrarConfirmacion) {
+  document.getElementById("popupMensaje").textContent = mensaje;
+
+  document.getElementById("popupAcciones").style.display = mostrarConfirmacion ? "flex" : "none";
+  document.getElementById("popupCerrar").style.display = mostrarConfirmacion ? "none" : "flex";
+
+  document.getElementById("popupRifa").style.display = "flex";
+}
+
+function cerrarPopupRifa() {
+  document.getElementById("popupRifa").style.display = "none";
+}
+
+function confirmarAccionRifa() {
+  if (!numeroSeleccionado) return;
+
+  const mensaje = encodeURIComponent(
+    `Hola Mónica, quiero apartar el número ${numeroSeleccionado.id} del segundo talonario de la rifa solidaria: dije con esmeralda colombiana.`
+  );
+
+  window.open(`https://wa.me/34605166058?text=${mensaje}`, "_blank");
+
+  cerrarPopupRifa();
+}
+
+function pintarTarjetonRifa() {
+    
+  const contenedor = document.getElementById("tarjetonRifa");
+
+  numerosRifa.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "rifa-numero";
+
+    if (item.nombre !== null) {
+      div.classList.add("vendido");
+    }
+
+    div.innerHTML = `
+      <div class="num">${item.id}</div>
+      <div class="nombre">${item.nombre || "Disponible"}</div>
+    `;
+
+div.onclick = () => {
+  numeroSeleccionado = item;
+
+  if (item.nombre !== null) {
+    mostrarPopupRifa("Lo siento. El número ya está ocupado.", false);
+    return;
+  }
+
+  mostrarPopupRifa("¿Deseas enviar un mensaje para apartar tu número?", true);
+};
+
+    contenedor.appendChild(div);
+  });
+}
+
+  function mostrarGanadorRifa() {
+    const numero = numerosRifa.find(item => item.id === numeroGanador);
+
+    document.getElementById("numeroGanadorTexto").textContent = numeroGanador;
+
+    if (numero && numero.nombre) {
+      document.getElementById("ganadorTexto").textContent = numero.nombre;
+    } else {
+      document.getElementById("ganadorTexto").textContent = "El número ganador no fue comprado.";
+    }
+  }
+
+  function abrirImagenRifa() {
+    document.getElementById("modalRifa").style.display = "flex";
+  }
+
+  function cerrarImagenRifa() {
+    document.getElementById("modalRifa").style.display = "none";
+  }
+
+  pintarTarjetonRifa();
+  mostrarGanadorRifa();
+</script>
+</body>
+</html>
